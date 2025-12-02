@@ -6,14 +6,14 @@ dotenv.config();
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Server running");
+app.get("/health", (req, res) => {
+  res.status(200).json({ message: "Hello world" });
 });
 
 const urls = [
   process.env.HEAVEN_CHAT,
   process.env.TASK_FLOW,
-
+  process.env.MY_UPTIME,
 ];
 
 const hitApi = async () => {
