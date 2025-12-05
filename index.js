@@ -27,6 +27,6 @@ const hitApi = async () => {
   }
 };
 
-setInterval(hitApi, 5000);
+setInterval(hitApi, 30000)
 
 app.listen(3000);
