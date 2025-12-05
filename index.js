@@ -17,7 +17,7 @@ const urls = [
 ];
 
 let timer = 0;
-
+const intervalTime = 10000;
 const hitApi = async () => {
   for (const url of urls) {
     try {
@@ -29,10 +29,10 @@ const hitApi = async () => {
     }
   }
 
-  timer += 30000;
+  timer += intervalTime;
   if (timer >= 86400000) timer = 0;
 };
 
-setInterval(hitApi, 30000);
+setInterval(hitApi, intervalTime);
 
 app.listen(3000);
