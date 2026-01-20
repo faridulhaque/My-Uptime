@@ -17,6 +17,7 @@ const urls = [
 ];
 
 let timer = 0;
+<<<<<<< HEAD
 
 // const hitApi = async () => {
 //   for (const url of urls) {
@@ -34,5 +35,24 @@ let timer = 0;
 // };
 
 // setInterval(hitApi, 30000);
+=======
+const intervalTime = 10000;
+const hitApi = async () => {
+  for (const url of urls) {
+    try {
+      const finalUrl = timer >= 86400000 ? url + "?q=db" : url;
+      const res = await axios.get(finalUrl);
+      console.log(finalUrl, res.data);
+    } catch (err) {
+      console.log(url, "Error hitting API");
+    }
+  }
+
+  timer += intervalTime;
+  if (timer >= 86400000) timer = 0;
+};
+
+setInterval(hitApi, intervalTime);
+>>>>>>> 45d57a54474acf815211b7c7eab8a08ca56c1f3e
 
 app.listen(5000);
